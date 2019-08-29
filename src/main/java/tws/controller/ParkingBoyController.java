@@ -14,7 +14,7 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
-@RequestMapping("/parkingBoy")
+@RequestMapping("/parkingboy")
 public class ParkingBoyController {
 
 	@Autowired
@@ -30,7 +30,7 @@ public class ParkingBoyController {
     public ResponseEntity<ParkingBoy> addParkingBoy(@RequestBody ParkingBoy parkingBoy) {
     	parkingBoyMapper.insertParkingBoy(parkingBoy);
     	
-    	return ResponseEntity.created(URI.create("parking boy is created")).build();
+    	return ResponseEntity.ok(parkingBoy);
     }
     
 }

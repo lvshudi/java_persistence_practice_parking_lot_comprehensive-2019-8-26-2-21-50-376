@@ -2,24 +2,28 @@ package tws.entity;
 
 import java.io.Serializable;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class ParkingBoy implements Serializable {
-    private int id;
+    private String parkingBoyId;
 
+	public String getParkingBoyId() {
+		return parkingBoyId;
+	}
 
-    public ParkingBoy() {
+	public void setParkingBoyId(String parkingBoyId) {
+		this.parkingBoyId = parkingBoyId;
+	}
 
-    }
+	public ParkingBoy(String parkingBoyId) {
+		super();
+		this.parkingBoyId = parkingBoyId;
+	}
 
-    public ParkingBoy(int id) {
-        this.id = id;
-        
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-    	this.id = id;
-    }
+	public ParkingBoy() {
+		super();
+	}
+    
+    
 }
