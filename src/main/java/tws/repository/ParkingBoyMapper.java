@@ -12,7 +12,7 @@ import java.util.List;
 @Mapper
 public interface ParkingBoyMapper {
 	
-	@Select("select * from parkingboy")
+	@Select("select employee_id as parkingBoyId from parkingboy")
     List<ParkingBoy> getParkingBoys();
 	
 	@Insert("insert into parkingboy (employee_id) values(#{parkingBoy.parkingBoyId})")
