@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 import tws.entity.ParkingBoy;
+import tws.entity.ParkingLot;
 
 import java.util.List;
 
@@ -17,4 +18,7 @@ public interface ParkingBoyMapper {
 	
 	@Insert("insert into parkingboy (employee_id) values(#{parkingBoy.parkingBoyId})")
     void insertParkingBoy(@Param("parkingBoy") ParkingBoy parkingBoy);
+	
+	@Select("select parkinglot_id as parkingLotId from parkinglot where employee_id = #{parkingBoyId}")
+	List<ParkingLot> getParkingLotById(@Param("parkingBoyId") String parkingBoyId);
 }
