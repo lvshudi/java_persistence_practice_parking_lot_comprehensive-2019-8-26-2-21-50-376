@@ -13,5 +13,7 @@ spring:
   h2:
     console:
       enabled: true
+  flyway:
+      baseline-on-migrate: true
 mybatis:
   mapper-locations: "classpath:mapper/*Mapper.xml"

@@ -5,47 +5,44 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mybatis.spring.boot.test.autoconfigure.MybatisTest;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.jdbc.JdbcTestUtils;
-import org.springframework.web.bind.annotation.GetMapping;
+
 import tws.entity.ParkingBoy;
+import tws.entity.ParkingLot;
 
 import javax.sql.DataSource;
 import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringRunner.class)
 @MybatisTest
-public class ParkingBoyMapperTest {
-
+public class PackinglotMapperTest {
     @Autowired
-    private ParkingBoyMapper parkingBoyMapper;
+    private ParkingLotMapper packinglotMapper;
     @Autowired
     JdbcTemplate jdbcTemplate;
 
-
     @Autowired
     public void setDataSource(DataSource dataSource) {
+
         this.jdbcTemplate = new JdbcTemplate(dataSource);
     }
 
     @After
     public void tearDown() throws Exception {
-        JdbcTestUtils.deleteFromTables(jdbcTemplate, "parkingboy");
+        JdbcTestUtils.deleteFromTables(jdbcTemplate, "parkinglot");
     }
 
     @Test
     public void shouldFetchEmployee() {
-        //given
+        //given 已经有值不用传入参数了
+
         //when
-        List<ParkingBoy> employees = parkingBoyMapper.getParkingBoys();
+        List<ParkingLot> packingLots = packinglotMapper.getParkingLots();
         //then
-        assertEquals(3, employees.size());
+        assertEquals(4, packingLots.size());
     }
-
-
-
 }
